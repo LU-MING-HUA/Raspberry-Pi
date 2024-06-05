@@ -579,7 +579,7 @@ def stopSong(): #停止歌曲
 def destroy(): #Ctrl + C強制終止
     Buzz.stop()
     GPIO.output(Buzzer, 1)
-    GPIO.cleanup()
+    GPIO.cleanup() #清除
 
 if __name__ == '__main__': #主程式
     setUp()
