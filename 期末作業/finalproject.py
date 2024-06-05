@@ -365,7 +365,198 @@ def modeForAutoSony():
             Buzz.stop()
             time.sleep(0.25)
 
-def setUp():
+def modeForMusicCTone():
+    CL = [0, 131, 147, 165, 175, 196, 211, 248]		# Frequency of Low C notes
+
+    CM = [0, 262, 294, 330, 350, 393, 441, 495]		# Frequency of Middle C notes  
+
+    CH = [0, 525, 589, 661, 700, 786, 882, 990]		# Frequency of High C notes
+
+    lcd.clear()
+    lcd.cursor_pos = (0, 0)
+    lcd.write_string("Test Music")
+    lcd.cursor_pos = (1, 0)
+    lcd.write_string("Mode:C tone")
+    time.sleep(2)
+    while True:
+        while True: #低C音調
+            if GPIO.input(Btn_music1) == GPIO.HIGH:  # 檢查按鈕是否被按下
+                Buzz.start(50)
+                Buzz.ChangeFrequency(131)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(1)
+            elif GPIO.input(Btn_music2) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(147)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(2)
+            elif GPIO.input(Btn_music3) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(165)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(3)
+            elif GPIO.input(Btn_music4) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(175)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(4)
+            elif GPIO.input(Btn_music5) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(196)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(5)
+            elif GPIO.input(Btn_music6) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(211)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(6)
+            elif GPIO.input(Btn_music7) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(248)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(7)
+            if GPIO.input(Btn_mode) == GPIO.LOW:  # 檢查按鈕是否被按下
+                button_pressed_time = time.time()
+                time.sleep(3)
+                if GPIO.input(Btn_mode) == GPIO.LOW:
+                    if time.time() - button_pressed_time >= 2:
+                        print("更改模式")
+                        return
+                print("切換成中C音調")
+                break
+            if GPIO.input(Btn_end) == GPIO.LOW: #檢查結束按鈕
+                lcd.clear()
+                lcd.cursor_pos = (0, 0)
+                lcd.write_string("Turn Off")
+                print("關機")
+                sys.exit()
+        
+        while True: #中C音調
+            if GPIO.input(Btn_music1) == GPIO.HIGH:  # 檢查按鈕是否被按下
+                Buzz.start(50)
+                Buzz.ChangeFrequency(262)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(1)
+            elif GPIO.input(Btn_music2) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(294)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(2)
+            elif GPIO.input(Btn_music3) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(330)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(3)
+            elif GPIO.input(Btn_music4) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(350)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(4)
+            elif GPIO.input(Btn_music5) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(393)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(5)
+            elif GPIO.input(Btn_music6) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(441)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(6)
+            elif GPIO.input(Btn_music7) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(495)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(7)
+            if GPIO.input(Btn_mode) == GPIO.LOW:  # 檢查按鈕是否被按下
+                button_pressed_time = time.time()
+                time.sleep(3)
+                if GPIO.input(Btn_mode) == GPIO.LOW:
+                    if time.time() - button_pressed_time >= 2:
+                        print("更改模式")
+                        return
+                print("切換成高C音調")
+                break
+            if GPIO.input(Btn_end) == GPIO.LOW: #檢查結束按鈕
+                lcd.clear()
+                lcd.cursor_pos = (0, 0)
+                lcd.write_string("Turn Off")
+                print("關機")
+                sys.exit()
+
+        while True: #中C音調
+            if GPIO.input(Btn_music1) == GPIO.HIGH:  # 檢查按鈕是否被按下
+                Buzz.start(50)
+                Buzz.ChangeFrequency(525)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(1)
+            elif GPIO.input(Btn_music2) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(589)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(2)
+            elif GPIO.input(Btn_music3) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(661)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(3)
+            elif GPIO.input(Btn_music4) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(700)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(4)
+            elif GPIO.input(Btn_music5) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(786)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(5)
+            elif GPIO.input(Btn_music6) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(882)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(6)
+            elif GPIO.input(Btn_music7) == GPIO.HIGH:
+                Buzz.start(50)
+                Buzz.ChangeFrequency(990)
+                time.sleep(0.25)
+                Buzz.stop()
+                music.append(7)
+            if GPIO.input(Btn_mode) == GPIO.LOW:  # 檢查按鈕是否被按下
+                button_pressed_time = time.time()
+                time.sleep(3)
+                if GPIO.input(Btn_mode) == GPIO.LOW:
+                    if time.time() - button_pressed_time >= 2:
+                        print("更改模式")
+                        return
+                print("切換成低C音調")
+                break
+            if GPIO.input(Btn_end) == GPIO.LOW: #檢查結束按鈕
+                lcd.clear()
+                lcd.cursor_pos = (0, 0)
+                lcd.write_string("Turn Off")
+                print("關機")
+                sys.exit()
+    
+def setUp(): #設定所有元件
     GPIO.setwarnings(False)
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(Buzzer, GPIO.OUT)
@@ -385,57 +576,18 @@ def setUp():
 def stopSong(): #停止歌曲
     Buzz.stop()
 
-def loop():
-    while True:
-        print('\nPlaying song 1...')
-        for i in range(1, len(song_1)):
-            if GPIO.input(Btn) == GPIO.LOW:  # 檢查按鈕是否被按下
-                button_pressed_time = time.time()
-                time.sleep(3)
-                if GPIO.input(Btn) == GPIO.LOW:
-                    if time.time() - button_pressed_time >= 2:
-                        print("偵測長按按鈕 停止播歌!")
-                        sys.exit()
-                stop_song()  # 如果按下按鈕，立即停止歌曲
-                break
-            Buzz.start(50)
-            Buzz.ChangeFrequency(song_1[i])
-            time.sleep(beat_1[i] * 0.25)
-            Buzz.stop()
-            time.sleep(0.25)
-
-        print('\nPlaying song 2...')
-        for i in range(1, len(song_2)):
-            if GPIO.input(Btn) == GPIO.LOW:  # 檢查按鈕是否被按下
-                button_pressed_time = time.time()
-                time.sleep(3)
-                if GPIO.input(Btn) == GPIO.LOW:
-                    if time.time() - button_pressed_time >= 2:
-                        print("偵測長按按鈕 停止播歌!")
-                        sys.exit()
-                stop_song()  # 如果按下按鈕，立即停止歌曲
-                break
-            Buzz.start(50)
-            Buzz.ChangeFrequency(song_2[i])
-            time.sleep(beat_2[i] * 0.25)
-            Buzz.stop()
-            time.sleep(0.25)
-        
-
-
-	
-
-def destroy():
+def destroy(): #Ctrl + C強制終止
     Buzz.stop()
     GPIO.output(Buzzer, 1)
     GPIO.cleanup()
 
-if __name__ == '__main__':
+if __name__ == '__main__': #主程式
     setUp()
     try:
         while True:
             modeForBtnMusicLittleBee()
             modeForBtnMusicLittleSheep()
             modeForAutoSony()
+            modeForMusicCTone()
     except KeyboardInterrupt:
         destroy()
